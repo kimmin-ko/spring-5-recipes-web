@@ -1,6 +1,7 @@
 package com.mins.springrecipes.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.servlet.AsyncHandlerInterceptor;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -34,9 +35,4 @@ public class MeasurementInterceptor implements HandlerInterceptor {
         log.info(String.format("END URL   ==> %-35s {executed in %d msec}", request.getRequestURI(), (endTime - startTime) / 1000000));
     }
 
-    // View 렌더링 완료 후
-    @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-
-    }
 }

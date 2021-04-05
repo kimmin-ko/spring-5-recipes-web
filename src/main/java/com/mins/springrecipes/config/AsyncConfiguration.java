@@ -1,10 +1,13 @@
 package com.mins.springrecipes.config;
 
+import com.mins.springrecipes.interceptor.AsyncMeasurementInterceptor;
+import com.mins.springrecipes.interceptor.MeasurementInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.AsyncSupportConfigurer;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
@@ -12,6 +15,11 @@ import java.util.Locale;
 
 @Configuration
 public class AsyncConfiguration extends WebMvcConfigurationSupport {
+
+    @Override
+    protected void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new AsyncMeasurementInterceptor());
+    }
 
     @Override
     protected void configureAsyncSupport(AsyncSupportConfigurer configurer) {
