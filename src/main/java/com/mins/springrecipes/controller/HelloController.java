@@ -59,4 +59,9 @@ public class HelloController {
         return emitter;
     }
 
+    @GetMapping("/index")
+    public String indexForm() {
+        return "index";
+    }
+
 }
