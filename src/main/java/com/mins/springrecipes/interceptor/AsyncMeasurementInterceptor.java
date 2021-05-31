@@ -16,8 +16,8 @@ public class AsyncMeasurementInterceptor implements AsyncHandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         log.info("preHandle() 호출 !!");
 
-//        if(request.getAttribute(START_TIME) == null)
-//            request.setAttribute(START_TIME, System.currentTimeMillis());
+        if(request.getAttribute(START_TIME) == null)
+            request.setAttribute(START_TIME, System.currentTimeMillis());
 
         return true;
     }
